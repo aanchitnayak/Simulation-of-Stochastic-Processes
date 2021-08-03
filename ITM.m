@@ -39,6 +39,7 @@ grid on
 title('ITM Generated Exponential Distribution')
 xlabel('$x$','Interpreter','latex')
 ylabel('$P(X = x)$','Interpreter','latex')
+legend('\lambda = 1.5')
 
 %% Simulating the Bernoulli(p) and Binomial(n,p) Distributions
 
@@ -69,7 +70,7 @@ grid on
 title('ITM Generated Bernoulli Distribution')
 xlabel('$x$','Interpreter','latex')
 ylabel('$P(X = x)$','Interpreter','latex')
-
+legend('p = 0.5')
 % For the Binomial Distribution, one can easily observe that a binomial
 % distribution is the sum of n i.i.d. Bernoulli(p) RVs. 
 bin.N = bern.N;
@@ -93,6 +94,7 @@ grid on
 title('ITM Generated Binomial Distribution')
 xlabel('$x$','Interpreter','latex')
 ylabel('$P(X = x)$','Interpreter','latex')
+legend('N = 500, p = 0.5')
 clear i j U 
 %% Simulating the Poisson Distribution
 
