@@ -33,7 +33,7 @@ service.S = random(service.G,1,SimLength);
 
 %% Generating a random sequence of inter-arrival times of customers:
 
-iaTime.Lm = 2;
+iaTime.Lm = 5;
 iaTime.A = makedist('Exponential',iaTime.Lm);
 iaTime.T = random(iaTime.A,1,SimLength);
 
@@ -94,3 +94,26 @@ end
 clear i j 
 
 mcs.Dj = 1/(mcs.N)*sum(mcs.D(mcs.Cj,:));
+
+figure
+subplot(211)
+plot(mcs.D(:,1:10),'-o')
+grid on
+title('Monte Carlo Simulation of Delay Times upto 10^{th} Arriving Customer')
+xlabel('Time')
+ylabel('D_n')
+subplot(212)
+plot(mcs.D)
+grid on
+title('Same MCS but with 10,000 Sample Paths')
+xlabel('Time')
+ylabel('D_n')
+
+% Notice the finite time delay for the given customer
+
+figure
+histogram(mcs.D(mcs.Cj,:),'Normalization','probability')
+grid on
+title('Distribution of Delays the 10^{th} customer will suffer')
+xlabel('Delay Length')
+ylabel('Probability')
